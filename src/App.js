@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
-function App() {
+const App = () => {
+  //  const post = {
+  //    id: 1,
+  //    text: 'Hello, world!',
+  //    timestamp: 'a minute ago',
+  //    author: {username: 'susan'},
+  //  }
+
+  const posts = [
+    {
+      id: 1,
+      text: 'Hello, world!',
+      timestamp: 'a minute ago',
+      author: {
+        username: 'susan',
+      },
+    },
+    {
+      id: 2,
+      text: 'Second post',
+      timestamp: 'an hour ago',
+      author: {
+        username: 'john',
+      },
+    },
+  ]
+
+  const listOfPosts = posts.map(post => {
+    return (
+      <li key={post.id}>
+        <b>{post.author.username}</b> &mdash; {post.timestamp}
+        <br />
+        {post.text}
+      </li>
+    )
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Microblog</h1>
+      {posts.length === 0 ? <p>There are no blog posts.</p> : <ul>{listOfPosts}</ul>} 
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
