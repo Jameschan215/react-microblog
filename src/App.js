@@ -1,47 +1,19 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { Container } from 'react-bootstrap'
+import Header from './components/Header'
+import Sidebar from './components/Sidebar'
+import { Stack } from 'react-bootstrap'
+import Posts from './components/Posts'
+import Main from './components/Main'
+
 
 const App = () => {
-  //  const post = {
-  //    id: 1,
-  //    text: 'Hello, world!',
-  //    timestamp: 'a minute ago',
-  //    author: {username: 'susan'},
-  //  }
-
-  const posts = [
-    {
-      id: 1,
-      text: 'Hello, world!',
-      timestamp: 'a minute ago',
-      author: {
-        username: 'susan',
-      },
-    },
-    {
-      id: 2,
-      text: 'Second post',
-      timestamp: 'an hour ago',
-      author: {
-        username: 'john',
-      },
-    },
-  ]
-
-  const listOfPosts = posts.map(post => {
-    return (
-      <li key={post.id}>
-        <b>{post.author.username}</b> &mdash; {post.timestamp}
-        <br />
-        {post.text}
-      </li>
-    )
-  })
-
   return (
     <div>
-      <h1>Microblog</h1>
-      {posts.length === 0 ? <p>There are no blog posts.</p> : <ul>{listOfPosts}</ul>} 
+      <Header />
+      <Main showSidebar={true}>
+        <Posts />
+      </Main>
     </div>
   )
 }
