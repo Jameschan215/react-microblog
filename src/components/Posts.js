@@ -1,3 +1,5 @@
+import { Container } from "react-bootstrap"
+
 const Posts = () => {
     const posts = [
         {
@@ -28,10 +30,10 @@ const Posts = () => {
         )
     })
 
-    return (
-        <div>
+    return (    
+        <Container>
             {posts.length === 0 ? <p>There are no blog posts.</p> : <ul>{listOfPosts}</ul>}
-        </div>
+        </Container>
     )
 }
 
