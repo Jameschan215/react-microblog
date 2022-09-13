@@ -4,8 +4,7 @@ import Main from "../components/Main"
 const ExplorePage = () => {
     return (
         <Main showSidebar>
-            <h1>Explore</h1>
-            <p>TODO</p>
+            <Posts content="explore" />
         </Main>
     )
 }
