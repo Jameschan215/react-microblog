@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import Main from "../components/Main"
-import { useState, useEffect } from "react"
+import { useState, useEffect, Component } from "react"
 import { Stack, Image, Spinner } from "react-bootstrap"
 import TimeAgo from "../components/TimeAgo"
 import { useApi } from "../contexts/ApiProvider"

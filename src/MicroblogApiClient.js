@@ -1,4 +1,3 @@
-import { async } from "q"
 
 const BASE_API_URL = process.env.REACT_APP_BASE_API_URL
 
@@ -11,18 +10,18 @@ class MicroblogApiClient {
         let query = new URLSearchParams(options.query || {}).toString()
 
         if (query !== '') {
-            query = '?' + query
+            query = '?' + query;
         }
 
-        let response 
+        let response
         try {
             response = await fetch(this.base_url + options.url + query, {
                 method: options.method,
                 headers: {
-                    'Content-Type': 'appication/json',
+                    'Content-Type': 'application/json',
                     ...options.headers,
                 },
-                body: options.body ?JSON.stringify(options.body) : null,
+                body: options.body ? JSON.stringify(options.body) : null,
             })
         } catch (error) {
             response = {
@@ -37,6 +36,7 @@ class MicroblogApiClient {
                 }
             }
         }
+        
 
         return {
             ok: response.ok,
@@ -47,25 +47,25 @@ class MicroblogApiClient {
 
     async get(url, query, options) {
         return this.request(
-            {method: 'GET', url, query, ...options}
+            { method: 'GET', url, query, ...options }
         )
     }
 
     async post(url, body, options) {
         return this.request(
-            {method: 'POST', url, body, ...options}
+            { method: 'POST', url, body, ...options }
         )
     }
 
     async put(url, body, options) {
         return this.request(
-            {method: 'PUT', url, body, ...options}
+            { method: 'PUT', url, body, ...options }
         )
     }
 
     async delete(url, options) {
         return this.request(
-            {method: 'DELETE', url, ...options}
+            { method: 'DELETE', url, ...options }
         )
     }
 }
